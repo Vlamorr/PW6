@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            line-height: 50px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide active">
+            <h2>Repaint and Reflow</h2>
+            <p>Repaint occurs when you change how something looks, like its color or visibility. Reflow happens when you change the size or layout of something, affecting how everything fits together on the page.</p>
+        </div>
+        <div class="slide">
+            <h2>JavaScript and Page Performance</h2>
+            <p>JavaScript can slow down how quickly your page loads because it might need to wait for JavaScript code to finish running before it can show everything. Making JavaScript code run faster and using less of it can help your page load more quickly.</p>
+        </div>
+        <div class="slide">
+            <h2>Minification of Scripts</h2>
+            <p>Minification makes your JavaScript code smaller by removing things that aren't needed, like extra spaces or comments. This can help your website load faster because there's less code to download and run.</p>
+        </div>
+        <div class="slide">
+            <h2>JS Web Workers</h2>
+            <p>Web Workers let your website do things in the background without slowing down what the user sees or interacts with. This can help keep your website fast and responsive, even if it's doing lots of things at once.</p>
+        </div>
+    </div>
+
+    <a class="prev" onclick="changeSlide(-1)">❮</a>
+    <a class="next" onclick="changeSlide(1)">❯</a>
+</div>
+
+<footer>
+    <p>MARKOVICH VLAD</p>
+</footer>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
+
+
+</body>
+</html>
